@@ -5,10 +5,10 @@ const { handleErrors } = require('../middleware/error');
 const gamesController = require('../controllers/gamesController');
 
 // Route to get all games
-router.get('/', handleErrors(gamesController.getAll));
+router.get('/', validation.validateGetAll, handleErrors(gamesController.getAll));
 
 // Route to get a single game by ID
-router.get('/:id', handleErrors(gamesController.getSingle));
+router.get('/:id', validation.validateGetByID, handleErrors(gamesController.getSingle));
 
 // Route to create a new game
 router.post('/', validation.saveGame, handleErrors(gamesController.createNewGame));
@@ -17,6 +17,6 @@ router.post('/', validation.saveGame, handleErrors(gamesController.createNewGame
 router.put('/:id', validation.saveGame, handleErrors(gamesController.updateGame));
 
 // Route to delete a game by ID
-router.delete('/:id', handleErrors(gamesController.deleteGame));
+router.delete('/:id', validation.validateGetByID, handleErrors(gamesController.deleteGame));
 
 module.exports = router;

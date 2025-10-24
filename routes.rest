@@ -9,6 +9,12 @@ GET http://localhost:3000/characters/68f17145486630977d797512
 GET http://localhost:3000/games
 ###
 GET http://localhost:3000/games/68f16e11486630977d797506
+### 
+// Invalid ID test
+GET http://localhost:3000/characters/123456789012
+###
+// Invalid get all query test
+GET http://localhost:3000/games?page=-1&limit=500&sort=banana
 ###
 POST http://localhost:3000/characters
 Content-Type: application/json
@@ -70,6 +76,12 @@ DELETE http://localhost:3000/games/68f2d5b5f354a8486620bab3
 // PRODUCTION
 ###
 GET https://zeldaapi.onrender.com/characters
+###
+// Invalid get all query test
+GET https://zeldaapi.onrender.com/characters?page=-1&limit=500&sort=banana
+###
+// Invalid ID test
+GET https://zeldaapi.onrender.com/characters/123456789012
 ###
 GET https://zeldaapi.onrender.com/characters/68f17145486630977d797512
 ###
