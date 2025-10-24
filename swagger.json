@@ -1,0 +1,369 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Zelda API",
+    "description": "A simple API to get information about characters and games in the Zelda series. All routes are wrapped in centralized error handling. POST and PUT routes include validation logic and may return 422 if input is invalid. Not affiliated with Nintendo.",
+    "version": "1.0.0"
+  },
+  "host": "zeldaapi.onrender.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api-docs": {
+      "get": {
+        "description": "Serves the Swagger UI documentation for the Zelda API",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/characters/": {
+      "get": {
+        "description": "Fetches a list of all Zelda characters in the database.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a new Zelda character record in the database. Validates required fields before saving.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Link"
+                },
+                "race": {
+                  "example": "Hylian"
+                },
+                "gender": {
+                  "example": "Male"
+                },
+                "age": {
+                  "example": "17"
+                },
+                "era": {
+                  "example": "Breath of the Wild"
+                },
+                "description": {
+                  "example": "The main protagonist of Breath of the Wild, known for his courage and heroism. Wields the Master Sword and was Zelda's protector."
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/characters/{id}": {
+      "get": {
+        "description": "Retrieves a specific Zelda character by their unique ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates an existing Zelda character by their unique ID. Validates required fields before updating.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Link"
+                },
+                "race": {
+                  "example": "Hylian"
+                },
+                "gender": {
+                  "example": "Male"
+                },
+                "age": {
+                  "example": "17"
+                },
+                "era": {
+                  "example": "Breath of the Wild"
+                },
+                "description": {
+                  "example": "The main protagonist of Breath of the Wild, known for his courage and heroism. Wields the Master Sword and was Zelda's protector."
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes a specific Zelda character by their unique ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/games/": {
+      "get": {
+        "description": "Retrieves all Zelda games in the database.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a new Zelda game in the database. Validates required fields before saving.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "The Legend of Zelda: Breath of the Wild"
+                },
+                "launchDate": {
+                  "example": "March 3, 2017"
+                },
+                "rating": {
+                  "example": "E10+"
+                },
+                "publisher": {
+                  "example": "Nintendo"
+                },
+                "platform": {
+                  "example": "Nintendo Switch"
+                },
+                "timeline": {
+                  "example": "Converged Timeline"
+                },
+                "sequels": {
+                  "example": "Tears of the Kingdom"
+                },
+                "description": {
+                  "example": "An open-world action-adventure game that redefined the Zelda series with its vast exploration and innovative gameplay mechanics, set thousands of years after all previous games in a reconverged timeline"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/games/{id}": {
+      "get": {
+        "description": "Retrieves a specific Zelda game by its unique ID.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates a specific Zelda game by its unique ID. Validates required fields before updating.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "The Legend of Zelda: Breath of the Wild"
+                },
+                "launchDate": {
+                  "example": "March 3, 2017"
+                },
+                "rating": {
+                  "example": "E10+"
+                },
+                "publisher": {
+                  "example": "Nintendo"
+                },
+                "platform": {
+                  "example": "Nintendo Switch"
+                },
+                "timeline": {
+                  "example": "Converged Timeline"
+                },
+                "sequels": {
+                  "example": "Tears of the Kingdom"
+                },
+                "description": {
+                  "example": "An open-world action-adventure game that redefined the Zelda series with its vast exploration and innovative gameplay mechanics, set thousands of years after all previous games in a reconverged timeline"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity - Validation Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes a specific Zelda game by its unique ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

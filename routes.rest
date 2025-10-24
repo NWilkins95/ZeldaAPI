@@ -1,0 +1,134 @@
+// For each PUT and DELETE request, ensure to use the ID created from a previous POST request.
+
+// LOCALHOST
+###
+GET http://localhost:3000/characters
+###
+GET http://localhost:3000/characters/68f17145486630977d797512
+###
+GET http://localhost:3000/games
+###
+GET http://localhost:3000/games/68f16e11486630977d797506
+###
+POST http://localhost:3000/characters
+Content-Type: application/json
+
+{
+  "name": "Tetra",
+  "race": "Hylian",
+  "gender": "Female",
+  "age": 15,
+  "era": "Wind Waker",
+  "description": "A pirate captain with a bold personality who is later revealed to be Princess Zelda. She plays a key role in guiding Link through the flooded world of Hyrule."
+}
+###
+PUT http://localhost:3000/characters/68f2d55bf354a8486620bab2
+Content-Type: application/json
+
+{
+  "name": "Tetra",
+  "race": "Hylian",
+  "gender": "Female",
+  "age": 16,
+  "era": "Wind Waker",
+  "description": "Updated age and description for Tetra, the pirate princess of the Great Sea."
+}
+###
+DELETE http://localhost:3000/characters/68f2d55bf354a8486620bab2
+###
+POST http://localhost:3000/games
+Content-Type: application/json
+
+{
+  "title": "The Legend of Zelda: Phantom Hourglass",
+  "launchDate": "June 23, 2007",
+  "rating": "E",
+  "publisher": "Nintendo",
+  "platform": "Nintendo DS",
+  "timeline": "Adult Timeline",
+  "sequels": "Spirit Tracks",
+  "description": "A direct sequel to Wind Waker, featuring stylus-based controls and sea exploration as Link searches for Tetra across mysterious islands."
+}
+###
+PUT http://localhost:3000/games/68f2d5b5f354a8486620bab3
+Content-Type: application/json
+
+{
+  "title": "The Legend of Zelda: Phantom Hourglass",
+  "launchDate": "June 23, 2007",
+  "rating": "E",
+  "publisher": "Nintendo",
+  "platform": "Nintendo DS",
+  "timeline": "Adult Timeline",
+  "sequels": "Spirit Tracks",
+  "description": "Updated description: Link sails to rescue Tetra in a stylus-driven adventure across the Great Sea."
+}
+###
+DELETE http://localhost:3000/games/68f2d5b5f354a8486620bab3
+###
+
+// PRODUCTION
+###
+GET https://zeldaapi.onrender.com/characters
+###
+GET https://zeldaapi.onrender.com/characters/68f17145486630977d797512
+###
+POST https://zeldaapi.onrender.com/characters
+Content-Type: application/json
+
+{
+  "name": "Tetra",
+  "race": "Hylian",
+  "gender": "Female",
+  "age": 15,
+  "era": "Wind Waker",
+  "description": "A pirate captain with a bold personality who is later revealed to be Princess Zelda. She plays a key role in guiding Link through the flooded world of Hyrule."
+}
+###
+PUT https://zeldaapi.onrender.com/characters/68f2d55bf354a8486620bab2
+Content-Type: application/json
+
+{
+  "name": "Tetra",
+  "race": "Hylian",
+  "gender": "Female",
+  "age": 16,
+  "era": "Wind Waker",
+  "description": "Updated age and description for Tetra, the pirate princess of the Great Sea."
+}
+###
+DELETE https://zeldaapi.onrender.com/characters/68f2d55bf354a8486620bab2
+###
+GET https://zeldaapi.onrender.com/games
+###
+GET https://zeldaapi.onrender.com/games/68f16e11486630977d797506
+###
+POST https://zeldaapi.onrender.com/games
+Content-Type: application/json
+
+{
+  "title": "The Legend of Zelda: Phantom Hourglass",
+  "launchDate": "June 23, 2007",
+  "rating": "E",
+  "publisher": "Nintendo",
+  "platform": "Nintendo DS",
+  "timeline": "Adult Timeline",
+  "sequels": "Spirit Tracks",
+  "description": "A direct sequel to Wind Waker, featuring stylus-based controls and sea exploration as Link searches for Tetra across mysterious islands."
+}
+###
+PUT https://zeldaapi.onrender.com/games/68f2d5b5f354a8486620bab3
+Content-Type: application/json
+
+{
+  "title": "The Legend of Zelda: Phantom Hourglass",
+  "launchDate": "June 23, 2007",
+  "rating": "E",
+  "publisher": "Nintendo",
+  "platform": "Nintendo DS",
+  "timeline": "Adult Timeline",
+  "sequels": "Spirit Tracks",
+  "description": "Updated description: Link sails to rescue Tetra in a stylus-driven adventure across the Great Sea."
+}
+###
+DELETE https://zeldaapi.onrender.com/games/68f2d5b5f354a8486620bab3
