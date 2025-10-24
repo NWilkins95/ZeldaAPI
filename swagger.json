@@ -110,7 +110,7 @@
         }
       },
       "put": {
-        "description": "Updates an existing Zelda character by their unique ID. All fields are required. Validates required fields before updating.",
+        "description": "Updates an existing Zelda character by their unique ID. All fields are required. Validates required fields and ID format before updating.",
         "parameters": [
           {
             "name": "id",
@@ -165,7 +165,7 @@
         }
       },
       "delete": {
-        "description": "Deletes a specific Zelda character by their unique ID.",
+        "description": "Deletes a specific Zelda character by their unique ID. Validates the ID format before deletion.",
         "parameters": [
           {
             "name": "id",
@@ -189,7 +189,7 @@
     },
     "/games/": {
       "get": {
-        "description": "Retrieves all Zelda games in the database.",
+        "description": "Retrieves all Zelda games in the database. Validates query parameters for pagination and sorting (if provided).",
         "produces": [
           "application/json"
         ],
@@ -203,7 +203,7 @@
         }
       },
       "post": {
-        "description": "Creates a new Zelda game in the database. All fields are required. Validates required fields before saving.",
+        "description": "Creates a new Zelda game in the database. All fields are required. Validates required fields and ID format before saving.",
         "parameters": [
           {
             "name": "body",
@@ -257,7 +257,7 @@
     },
     "/games/{id}": {
       "get": {
-        "description": "Retrieves a specific Zelda game by its unique ID.",
+        "description": "Retrieves a specific Zelda game by its unique ID. Validates the ID format before fetching.",
         "produces": [
           "application/json"
         ],
@@ -282,7 +282,7 @@
         }
       },
       "put": {
-        "description": "Updates a specific Zelda game by its unique ID. All fields are required. Validates required fields before updating.",
+        "description": "Updates a specific Zelda game by its unique ID. All fields are required. Validates required fields and ID format before updating.",
         "parameters": [
           {
             "name": "id",
@@ -343,7 +343,7 @@
         }
       },
       "delete": {
-        "description": "Deletes a specific Zelda game by its unique ID.",
+        "description": "Deletes a specific Zelda game by its unique ID. Validates the ID format before deletion.",
         "parameters": [
           {
             "name": "id",
