@@ -14,7 +14,7 @@ router.get('/:id', validation.validateGetByID, handleErrors(gamesController.getS
 router.post('/', validation.saveGame, handleErrors(gamesController.createNewGame));
 
 // Route to update an existing game by ID
-router.put('/:id', validation.saveGame, handleErrors(gamesController.updateGame));
+router.put('/:id', validation.validateGetByID, validation.saveGame, handleErrors(gamesController.updateGame));
 
 // Route to delete a game by ID
 router.delete('/:id', validation.validateGetByID, handleErrors(gamesController.deleteGame));

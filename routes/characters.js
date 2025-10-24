@@ -14,7 +14,7 @@ router.get('/:id', validation.validateGetByID, handleErrors(charactersController
 router.post('/', validation.saveCharacter, handleErrors(charactersController.createNewCharacter));
 
 // Route to update an existing character by ID
-router.put('/:id', validation.saveCharacter, handleErrors(charactersController.updateCharacter));
+router.put('/:id', validation.validateGetByID, validation.saveCharacter, handleErrors(charactersController.updateCharacter));
 
 // Route to delete a character by ID
 router.delete('/:id', validation.validateGetByID, handleErrors(charactersController.deleteCharacter));

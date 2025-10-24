@@ -23,7 +23,7 @@
     },
     "/characters/": {
       "get": {
-        "description": "Fetches a list of all Zelda characters in the database.",
+        "description": "Fetches a list of all Zelda characters in the database. Validates query parameters for pagination and sorting (if provided).",
         "produces": [
           "application/json"
         ],
@@ -85,7 +85,7 @@
     },
     "/characters/{id}": {
       "get": {
-        "description": "Retrieves a specific Zelda character by their unique ID.",
+        "description": "Retrieves a specific Zelda character by their unique ID. Validates the ID format before fetching.",
         "produces": [
           "application/json"
         ],
