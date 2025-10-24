@@ -37,7 +37,7 @@
         }
       },
       "post": {
-        "description": "Creates a new Zelda character record in the database. Validates required fields before saving.",
+        "description": "Creates a new Zelda character record in the database. All fields are required. Validates required fields before saving.",
         "parameters": [
           {
             "name": "body",
@@ -110,7 +110,7 @@
         }
       },
       "put": {
-        "description": "Updates an existing Zelda character by their unique ID. Validates required fields before updating.",
+        "description": "Updates an existing Zelda character by their unique ID. All fields are required. Validates required fields before updating.",
         "parameters": [
           {
             "name": "id",
@@ -203,7 +203,7 @@
         }
       },
       "post": {
-        "description": "Creates a new Zelda game in the database. Validates required fields before saving.",
+        "description": "Creates a new Zelda game in the database. All fields are required. Validates required fields before saving.",
         "parameters": [
           {
             "name": "body",
@@ -282,7 +282,7 @@
         }
       },
       "put": {
-        "description": "Updates a specific Zelda game by its unique ID. Validates required fields before updating.",
+        "description": "Updates a specific Zelda game by its unique ID. All fields are required. Validates required fields before updating.",
         "parameters": [
           {
             "name": "id",
