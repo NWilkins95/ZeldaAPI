@@ -4,10 +4,9 @@ const swaggerDocument = require('../swagger.json');
 const validation = require('../middleware/validate');
 const { handleErrors } = require('../middleware/error');
 const { checkLogin } = require('../utilities');
+const loginController = require('../controllers/loginController');
 
-router.get('/login', (req, res) => {
-    res.sendFile('login.html', { root: './views' });
-});
+router.get('/login', handleErrors(loginController.buildLogin));
 
 // Apply authentication check middleware to all routes in this router for swagger
 router.use(checkLogin);
