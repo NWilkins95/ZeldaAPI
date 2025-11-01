@@ -5,7 +5,11 @@ const validation = require('../middleware/validate');
 const { handleErrors } = require('../middleware/error');
 const { checkLogin } = require('../utilities');
 
-// Apply authentication check middleware to all routes in this router
+router.get('/login', (req, res) => {
+  res.send('Login Page - Placeholder');
+});
+
+// Apply authentication check middleware to all routes in this router for swagger
 router.use(checkLogin);
 
 router.use('/api-docs', swaggerUi.serve);
