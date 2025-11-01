@@ -6,7 +6,7 @@ const { handleErrors } = require('../middleware/error');
 const { checkLogin } = require('../utilities');
 
 router.get('/login', (req, res) => {
-  res.send('Login Page - Placeholder');
+    res.sendFile('login.html', { root: './views' });
 });
 
 // Apply authentication check middleware to all routes in this router for swagger
