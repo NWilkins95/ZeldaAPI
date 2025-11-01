@@ -13,4 +13,16 @@ async function startServer(app, port) {
   }
 }
 
-module.exports = { startServer };
+// Function to check if the user is authenticated, this will be a placeholder and refactored later with OAuth logic
+function checkLogin(req, res, next) {
+  var isAuthenticated = false; // Placeholder for actual authentication logic
+
+  if (isAuthenticated) {
+    next();
+  } else {
+    res.status(401).send("Unauthorized");
+    res.redirect('/'); // Redirect to home page if not authenticated
+  }
+}
+
+module.exports = { startServer, checkLogin };
