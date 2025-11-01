@@ -3,6 +3,10 @@ const router = express.Router();
 const validation = require('../middleware/validate');
 const { handleErrors } = require('../middleware/error');
 const gamesController = require('../controllers/gamesController');
+const { checkLogin } = require('../utilities');
+
+// Apply authentication check middleware to all routes in this router
+router.use(checkLogin);
 
 // Route to get all games
 router.get('/', validation.validateGetAll, handleErrors(gamesController.getAll));
