@@ -1,5 +1,6 @@
 // Import necessary modules and initialize the Express application
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const mongodb = require('./db/connect');
 const port = process.env.PORT || 3000;
 const { startServer } = require('./utilities/index');
@@ -9,11 +10,19 @@ const app = express();
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// Serve static files from the 'public' directory
+app.use('/public', express.static('public'));
+
 // CORS middleware to allow cross-origin requests
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   next();
 });
+
+// Set EJS as the templating engine and use express-ejs-layouts
+app.set('view engine', 'ejs');
+app.use(expressLayouts);
+app.set('layout', 'layouts/layout');
 
 // Use routes defined in the routes directory
 app.use('/', require('./routes'));

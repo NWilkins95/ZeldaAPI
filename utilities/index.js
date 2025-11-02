@@ -20,8 +20,7 @@ function checkLogin(req, res, next) {
   if (isAuthenticated) {
     next();
   } else {
-    res.status(401).send("Unauthorized");
-    res.redirect('/'); // Redirect to home page if not authenticated
+    res.redirect('/login'); // Redirect to login page if not authenticated
   }
 }
 

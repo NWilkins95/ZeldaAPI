@@ -3,6 +3,10 @@ const router = express.Router();
 const validation = require('../middleware/validate');
 const { handleErrors } = require('../middleware/error');
 const charactersController = require('../controllers/charactersController');
+const { checkLogin } = require('../utilities');
+
+// Apply authentication check middleware to all routes in this router
+router.use(checkLogin);
 
 // Route to get all characters
 router.get('/', validation.validateGetAll, handleErrors(charactersController.getAll));
