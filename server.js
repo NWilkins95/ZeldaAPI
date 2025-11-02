@@ -10,6 +10,9 @@ const app = express();
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// Serve static files from the 'public' directory
+app.use('/public', express.static('public'));
+
 // CORS middleware to allow cross-origin requests
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
