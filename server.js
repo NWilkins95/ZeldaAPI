@@ -5,13 +5,12 @@ const mongodb = require('./db/connect');
 const port = process.env.PORT || 3000;
 const { startServer } = require('./utilities/index');
 const { errorHandler } = require('./middleware/error');
+const { handleErrors } = require('./middleware/error');
 const app = express();
+const static = require("./routes/static");
 
 // Middleware to parse JSON bodies
 app.use(express.json());
-
-// Serve static files from the 'public' directory
-app.use('/public', express.static('public'));
 
 // CORS middleware to allow cross-origin requests
 app.use((req, res, next) => {
@@ -23,6 +22,9 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.set('layout', 'layouts/layout');
+
+// Serve static files from the 'public' directory
+app.use(handleErrors(static));
 
 // Use routes defined in the routes directory
 app.use('/', require('./routes'));
