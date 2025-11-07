@@ -8,9 +8,6 @@ const loginController = require('../controllers/loginController');
 
 router.get('/login', handleErrors(loginController.buildLogin));
 
-// Apply authentication check middleware to all routes in this router for swagger
-router.use(checkLogin);
-
 router.use('/api-docs', swaggerUi.serve);
 router.get('/api-docs', validation.validateGetAll, handleErrors(swaggerUi.setup(swaggerDocument)));
 
