@@ -8,7 +8,7 @@
   "host": "zeldaapi.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "securityDefinitions": {
     "GitHubOAuth": {
