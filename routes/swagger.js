@@ -14,6 +14,6 @@ router.get('/', (req, res) => {
 router.get('/login', handleErrors(loginController.buildLogin));
 
 router.use('/api-docs', swaggerUi.serve);
-router.get('/api-docs', checkLogin, validation.validateGetAll, handleErrors(swaggerUi.setup(swaggerDocument)));
+router.get('/api-docs', validation.validateGetAll, handleErrors(swaggerUi.setup(swaggerDocument)));
 
 module.exports = router;
