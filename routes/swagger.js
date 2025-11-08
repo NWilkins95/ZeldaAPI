@@ -6,6 +6,7 @@ const { handleErrors } = require('../middleware/error');
 const { checkLogin } = require('../utilities');
 const loginController = require('../controllers/loginController');
 
+// Redirect root to login
 router.get('/', (req, res) => {
   res.redirect('/login');
 });
