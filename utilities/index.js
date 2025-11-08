@@ -1,4 +1,5 @@
 const { connectToDb } = require('../db/connect');
+const passport = require('passport');
 
 // Function to start the server after connecting to the database
 async function startServer(app, port) {
@@ -13,15 +14,12 @@ async function startServer(app, port) {
   }
 }
 
-// Function to check if the user is authenticated, this will be a placeholder and refactored later with OAuth logic
 function checkLogin(req, res, next) {
-  var isAuthenticated = false; // Placeholder for actual authentication logic
-
-  if (isAuthenticated) {
-    next();
-  } else {
-    res.redirect('/login'); // Redirect to login page if not authenticated
+  if (req.isAuthenticated()) {
+    return next();
   }
+  res.redirect('/login'); 
 }
+
 
 module.exports = { startServer, checkLogin };
